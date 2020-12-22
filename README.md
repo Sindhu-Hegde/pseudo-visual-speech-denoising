@@ -1,6 +1,6 @@
 
 
-# Pseduo-Visual Speech Denoising
+# Pseudo-Visual Speech Denoising
 
 This code is for our paper titled: *Visual Speech Enhancement Without A Real Visual Stream* published at WACV 2021.
 
@@ -117,7 +117,7 @@ To be updated soon!
 ---
 Licence and Citation
 ---
-The software is licensed under the MIT License. Please cite the following paper if you have use this code:
+The software is licensed under the MIT License. Please cite the following paper if you have used this code:
 
 ```
 @misc{hegde2020visual,

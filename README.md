@@ -120,12 +120,13 @@ Licence and Citation
 The software is licensed under the MIT License. Please cite the following paper if you have use this code:
 
 ```
-@inproceedings{Sindhu_Denoising_2020,
-author = {Sindhu B Hegde and K R Prajwal and Rudrabha Mukhopadhyay and Vinay Namboodiri and C. V. Jawahar},
-title = {Visual Speech Enhancement Without A Real Visual Stream},
-year = {2020},
-eprint={2012.10852},
-archivePrefix={arXiv},
+@misc{hegde2020visual,
+      title={Visual Speech Enhancement Without A Real Visual Stream}, 
+      author={Sindhu B Hegde and K R Prajwal and Rudrabha Mukhopadhyay and Vinay Namboodiri and C. V. Jawahar},
+      year={2020},
+      eprint={2012.10852},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
 }
 ```
 

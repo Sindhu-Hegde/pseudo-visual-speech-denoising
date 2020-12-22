@@ -1,0 +1,8 @@
+librosa==0.7.0
+torch==1.6.0
+numba==0.48.0
+tqdm==4.19.9
+tensorflow-gpu==1.13.1
+opencv-python==4.0.0.21
+pypesq==1.2.4
+pystoi==0.3.3

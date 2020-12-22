@@ -1,4 +1,5 @@
 
+
 # Pseduo-Visual Speech Denoising
 
 This code is for our paper titled: *Visual Speech Enhancement Without A Real Visual Stream* published at WACV 2021.
@@ -23,10 +24,11 @@ Prerequisites
 Getting the weights
 -----
 
+
 | Model  | Description |  Link to the model | 
 | :-------------: | :---------------: | :---------------: |
-| Wav2Lip teacher  |Weights of the teacher lipsync model | [Link]()  |
-| Lipsync student  | Weights of the student lipsync model to generate the visual stream for noisy audio inputs | [Link]() |
+| Wav2Lip teacher  |Weights of the teacher lipsync model | [Link](https://iiitaphyd-my.sharepoint.com/:u:/g/personal/radrabha_m_research_iiit_ac_in/Eb3LEzbfuKlJiR600lQWRxgBIY27JZg80f7V9jtMfbNDaQ?e=TBFBVW)  |
+| Lipsync student  | Weights of the student lipsync model to generate the visual stream for noisy audio inputs | [Link](https://iiitaphyd-my.sharepoint.com/:u:/g/personal/sindhu_hegde_research_iiit_ac_in/EUR-4Fbq_11Dm5xzE5BpG8YBNVHqRi4cn0fabni74Zlauw?e=zl0AxL) |
 | Denoising model  | Weights of the denoising model | [Link]() |---
 ---
 Denoising any audio/video using the pre-trained model (Inference)
@@ -37,7 +39,7 @@ You can denoise any noisy audio/video and obtain the clean speech of the target 
 
 The result is saved (by default) in `results/result.mp4`. The result directory can be specified in arguments, similar to several other available options. The input file can be any audio file: `*.wav`, `*.mp3` or even a video file, from which the code will automatically extract the audio and generate the clean speech. Note that the noise should not be human speech, as this work only tackles the denoising task, not speaker separation.
 
-##### Generating only the lip-movements for any given noisy audio/video
+#### Generating only the lip-movements for any given noisy audio/video
 The synthetic visual stream (lip-movements) can be generated for any noisy audio/video using:
 
     cd lipsync
@@ -47,7 +49,7 @@ The result is saved (by default) in `results/result_voice.mp4`. The result direc
 
 # Training
 
-We illustrate the training process using the LRS3 dataset. Adapting for other datasets would involve small modifications to the code.
+We illustrate the training process using the [LRS3](https://www.robots.ox.ac.uk/~vgg/data/lip_reading/lrs3.html) and [VGGSound](https://www.robots.ox.ac.uk/~vgg/data/vggsound/) dataset. Adapting for other datasets would involve small modifications to the code.
 
 ### Preprocess the dataset
 ##### LRS3 train-val/pre-train dataset folder structure
@@ -73,7 +75,7 @@ preprocessed_root (lrs3_preprocessed)
 |	│   ├── *.jpg (extracted face crops from each frame)
 ```
 
-##### VGGSound dataset folder structure
+##### VGGSound folder structure
 
 We use [VGGSound dataset](https://www.robots.ox.ac.uk/~vgg/data/vggsound/) as noisy data which is mixed with the clean speech from LRS3 dataset. We download the audio files (`*.wav files`) from [here](https://www.robots.ox.ac.uk/~vgg/data/vggsound/). 
 
@@ -93,7 +95,7 @@ The lipsync model can be trained using:
 
     python train_student.py --data_root_lrs3_pretrain=<path-of-preprocessed-LRS3-pretrain-set> --data_root_lrs3_train=<path-of-preprocessed-LRS3-train-set> --noise_data_root=<path-of-VGGSound-dataset-to-mix-with-clean-speech> --wav2lip_checkpoint_path=<pretrained-wav2lip-teacher-model-ckpt-path> --checkpoint_dir=<path-to-save-the-trained-student-lipsync-model>
 
-**Note:** The pre-trained Wav2Lip teacher model must be downloaded ([wav2lip weights]())  before training the student model.
+**Note:** The pre-trained Wav2Lip teacher model must be downloaded ([wav2lip weights](https://iiitaphyd-my.sharepoint.com/:u:/g/personal/radrabha_m_research_iiit_ac_in/Eb3LEzbfuKlJiR600lQWRxgBIY27JZg80f7V9jtMfbNDaQ?e=TBFBVW))  before training the student model.
   
 ### Train the Denoising model!
 Navigate to the main directory: `cd ..`
@@ -126,5 +128,4 @@ archivePrefix={arXiv},
 ---
 Acknowledgements
 ---
-Parts of the lipsync code has been modified using [Wav2Lip repository](https://github.com/Rudrabha/Wav2Lip). We thank the authors for releasing the wonderful code and models. The code for Face Detection has been taken from the [face_alignment](https://github.com/1adrianb/face-alignment) repository. We thank the authors for releasing their code and models.
-
+Parts of the lipsync code has been modified using our [Wav2Lip repository](https://github.com/Rudrabha/Wav2Lip). The audio functions and parameters are taken from this [TTS repository](https://github.com/r9y9/deepvoice3_pytorch). We thank the author for this wonderful code. The code for Face Detection has been taken from the [face_alignment](https://github.com/1adrianb/face-alignment) repository. We thank the authors for releasing their code and models.

@@ -32,7 +32,7 @@ Getting the weights
 
 | Model  | Description |  Link to the model | 
 | :-------------: | :---------------: | :---------------: |
-| Denoising model  | Weights of the denoising model (needed for inference) | [Link]() |---
+| Denoising model  | Weights of the denoising model (needed for inference) | [Link](https://iiitaphyd-my.sharepoint.com/:u:/g/personal/sindhu_hegde_research_iiit_ac_in/Ea3mavZJa75Iu1nKUTvO9TwBro1ByZPyqF2dXYqrHQLQtA?e=UNtj54) |---
 | Lipsync student  | Weights of the student lipsync model to generate the visual stream for noisy audio inputs (needed for inference)| [Link](https://iiitaphyd-my.sharepoint.com/:u:/g/personal/sindhu_hegde_research_iiit_ac_in/EUR-4Fbq_11Dm5xzE5BpG8YBNVHqRi4cn0fabni74Zlauw?e=zl0AxL) |
 | Wav2Lip teacher  |Weights of the teacher lipsync model (only needed if you want to train the network from scratch) | [Link](https://iiitaphyd-my.sharepoint.com/:u:/g/personal/radrabha_m_research_iiit_ac_in/Eb3LEzbfuKlJiR600lQWRxgBIY27JZg80f7V9jtMfbNDaQ?e=TBFBVW)  |
 

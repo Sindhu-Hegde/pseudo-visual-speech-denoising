@@ -187,10 +187,10 @@ def predict(args):
 	model = load_model(args)
 
 	generated_stft = None
-	spec_batch = []
-	mel_batch = []
+	all_spec_batch = []
+	all_mel_batch = []
 	skip=False
-	for i, window in enumerate(tqdm(id_windows)):
+	for i, window in enumerate(id_windows):
 
 		start_idx = window[0]
 		end_idx = start_idx + hp.hparams.wav_step_size 
@@ -203,7 +203,7 @@ def predict(args):
 		if(spec_window.shape[0] != hp.hparams.spec_step_size):
 			skip=True
 			break
-		spec_batch.append(spec_window)
+		all_spec_batch.append(spec_window)
 		
 		# Get the melspectrogram for lipsync model
 		mel_window = get_segmented_mels(start_idx, inp_wav)
@@ -212,33 +212,49 @@ def predict(args):
 			break
 
 		mel_window = np.expand_dims(mel_window, axis=1)
-		mel_batch.append(mel_window)
+		all_mel_batch.append(mel_window)
 
 
-	if skip==True or len(spec_batch)==0 or len(mel_batch)==0:
+	if skip==True or len(all_spec_batch)==0 or len(all_mel_batch)==0:
 		return None
 
-	spec_batch = np.array(spec_batch)
+	all_spec_batch = np.array(all_spec_batch)
 
-	mel_batch = np.array(mel_batch)
+	all_mel_batch = np.array(all_mel_batch)
 
-	if spec_batch.shape[0] != mel_batch.shape[0]:
+	if all_spec_batch.shape[0] != all_mel_batch.shape[0]:
 		return None
 
-	# Convert to torch tensors
-	inp_mel = torch.FloatTensor(mel_batch).to(device)
-	inp_stft = torch.FloatTensor(spec_batch).to(device)
+	print("Total input segment windows: ", all_spec_batch.shape[0])
 
-	# Predict the faces using the student lipsync model
-	with torch.no_grad(): 
-		faces = lipsync_student(inp_mel)
+	pred_stft = []
+	for i in tqdm(range(0, all_spec_batch.shape[0], args.batch_size)):
 
-	# Predict the spectrograms for the corresponding window
-	with torch.no_grad():
-		pred_stft = model(inp_stft, faces)
+		mel_batch = all_mel_batch[i:i+args.batch_size]
+		spec_batch = all_spec_batch[i:i+args.batch_size]
 
-	pred_stft = pred_stft.cpu().numpy()
+		# Convert to torch tensors
+		inp_mel = torch.FloatTensor(mel_batch).to(device)
+		inp_stft = torch.FloatTensor(spec_batch).to(device)
+
+		# Predict the faces using the student lipsync model
+		with torch.no_grad(): 
+			faces = lipsync_student(inp_mel)
+
+		# Predict the spectrograms for the corresponding window
+		with torch.no_grad():
+			pred = model(inp_stft, faces)
+
+		# Detach from gpu
+		pred = pred.cpu().numpy()
+
+		pred_stft.extend(pred)
+
+	print("Successfully predicted for all the windows")
 	
+	# Convert to numpy array
+	pred_stft = np.array(pred_stft)
+
 	# Concatenate all the predictions 
 	steps = int(hp.hparams.spec_step_size - ((hp.hparams.wav_step_overlap/640) * 4))
 
@@ -267,6 +283,7 @@ if __name__ == '__main__':
 	parser.add_argument('--lipsync_student_model_path', type=str, required=True, help='Path of the lipgan model to generate frames')
 	parser.add_argument('--checkpoint_path', type=str,  required=True, help='Path of the saved checkpoint to load weights from')
 	parser.add_argument('--input', type=str, required=True, help='Filepath of input noisy audio/video')
+	parser.add_argument('--batch_size', type=int, default=32, required=False, help='Batch size for the model')
 	parser.add_argument('--result_dir', default='results', required=False, help='Path of the directory to save the results')
 
 	args = parser.parse_args()

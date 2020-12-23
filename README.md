@@ -14,6 +14,7 @@ This code is for our paper titled: *Visual Speech Enhancement Without A Real Vis
 **Features**
 --------
 - Denoise any real-world audio/video and obtain the clean speech.
+- Works in unconstrained settings for any speaker in any language
 - Inputs only audio but uses the benefits of lip movements by generating a synthetic visual stream. 
 - Complete training code and inference codes available. 
 

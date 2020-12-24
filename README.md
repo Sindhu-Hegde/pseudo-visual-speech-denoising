@@ -123,13 +123,13 @@ Licence and Citation
 The software is licensed under the MIT License. Please cite the following paper if you have used this code:
 
 ```
-@misc{hegde2020visual,
-      title={Visual Speech Enhancement Without A Real Visual Stream}, 
-      author={Sindhu B Hegde and K R Prajwal and Rudrabha Mukhopadhyay and Vinay Namboodiri and C. V. Jawahar},
-      year={2020},
-      eprint={2012.10852},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{Hegde2020VisualSE,
+  title={Visual Speech Enhancement Without A Real Visual Stream},
+  author={Sindhu B. Hegde and K. Prajwal and R. Mukhopadhyay and Vinay Namboodiri and C. Jawahar},
+  year={2020}
+  eprint={2012.10852},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
 }
 ```
 

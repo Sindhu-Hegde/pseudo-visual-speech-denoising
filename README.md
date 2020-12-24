@@ -3,7 +3,7 @@
 # Pseudo-Visual Speech Denoising
 
 This code is for our paper titled: *Visual Speech Enhancement Without A Real Visual Stream* published at WACV 2021.<br />
-Authors: Sindhu Hegde*, K R Prajwal*, Rudrabha Mukhopadhyay*, Vinay Namboodiri, C.V. Jawahar
+**Authors**: Sindhu Hegde*, K R Prajwal*, Rudrabha Mukhopadhyay*, Vinay Namboodiri, C.V. Jawahar
 
 [[Paper]](https://arxiv.org/abs/2012.10852) | [[Project Page]](http://cvit.iiit.ac.in/research/projects/cvit-projects/visual-speech-enhancement-without-a-real-visual-stream/) | [[Demo Video] (coming soon)](https://github.com/Sindhu-Hegde/pseudo-visual-speech-denoising) | [[Real-World Test Set] (coming soon)](https://github.com/Sindhu-Hegde/pseudo-visual-speech-denoising#)
 <br />
@@ -15,7 +15,7 @@ Authors: Sindhu Hegde*, K R Prajwal*, Rudrabha Mukhopadhyay*, Vinay Namboodiri, 
 **Features**
 --------
 - Denoise any real-world audio/video and obtain the clean speech.
-- Works in unconstrained settings for any speaker in any language
+- Works in unconstrained settings for any speaker in any language.
 - Inputs only audio but uses the benefits of lip movements by generating a synthetic visual stream. 
 - Complete training code and inference codes available. 
 
@@ -25,7 +25,7 @@ Prerequisites
 - `Python 3.7+`
 - ffmpeg: `sudo apt-get install ffmpeg`
 - Install necessary packages using `pip install -r requirements.txt`
-- Face detection [pre-trained model](https://www.adrianbulat.com/downloads/python-fan/s3fd-619a316812.pth) should be downloaded to `face_detection/detection/sfd/s3fd.pth`.
+- Face detection [pre-trained model](https://www.adrianbulat.com/downloads/python-fan/s3fd-619a316812.pth) should be downloaded to `face_detection/detection/sfd/s3fd.pth`
 -----
 Getting the weights
 -----
@@ -106,6 +106,7 @@ The lipsync model can be trained using:
   
 ### Train the Denoising model!
 Navigate to the main directory: `cd ..`
+
 The denoising model can be trained using:
 
     python train.py --data_root_lrs3_pretrain=<path-of-preprocessed-LRS3-pretrain-set> --data_root_lrs3_train=<path-of-preprocessed-LRS3-train-set> --noise_data_root=<path-of-VGGSound-dataset-to-mix-with-clean-speech> --lipsync_student_model_path=<trained-student-lipsync-model-ckpt-path> --checkpoint_dir=<path-to-save-the-trained-student-lipsync-model>
@@ -136,4 +137,4 @@ The software is licensed under the MIT License. Please cite the following paper 
 ---
 Acknowledgements
 ---
-Parts of the lipsync code has been modified using our [Wav2Lip repository](https://github.com/Rudrabha/Wav2Lip). The audio functions and parameters are taken from this [TTS repository](https://github.com/r9y9/deepvoice3_pytorch). We thank the author for this wonderful code. The code for Face Detection has been taken from the [face_alignment](https://github.com/1adrianb/face-alignment) repository. We thank the authors for releasing their code and models.
+Parts of the lipsync code has been modified using our [Wav2Lip repository](https://github.com/Rudrabha/Wav2Lip). The audio functions and parameters are taken from this [TTS repository](https://github.com/r9y9/deepvoice3_pytorch). We thank the authors for this wonderful code. The code for Face Detection has been taken from the [face_alignment](https://github.com/1adrianb/face-alignment) repository. We thank the authors for releasing their code and models.

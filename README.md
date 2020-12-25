@@ -5,6 +5,8 @@
 This code is for our paper titled: *Visual Speech Enhancement Without A Real Visual Stream* published at WACV 2021.<br />
 **Authors**: Sindhu Hegde*, K R Prajwal*, Rudrabha Mukhopadhyay*, Vinay Namboodiri, C.V. Jawahar
 
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/visual-speech-enhancement-without-a-real/speech-denoising-on-lrs3-vggsound)](https://paperswithcode.com/sota/speech-denoising-on-lrs3-vggsound?p=visual-speech-enhancement-without-a-real)
+
 [[Paper]](https://arxiv.org/abs/2012.10852) | [[Project Page]](http://cvit.iiit.ac.in/research/projects/cvit-projects/visual-speech-enhancement-without-a-real-visual-stream/) | [[Demo Video]](https://youtu.be/y_oP9t7WEn4) | [[Real-World Test Set] (coming soon)](https://github.com/Sindhu-Hegde/pseudo-visual-speech-denoising#)
 <br />
 <p align="center">

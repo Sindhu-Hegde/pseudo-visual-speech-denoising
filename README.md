@@ -128,13 +128,13 @@ Licence and Citation
 The software is licensed under the MIT License. Please cite the following paper if you have used this code:
 
 ```
-@inproceedings{Hegde2020VisualSE,
-  title={Visual Speech Enhancement Without A Real Visual Stream},
-  author={Sindhu B. Hegde and K. Prajwal and R. Mukhopadhyay and Vinay Namboodiri and C. Jawahar},
-  year={2020}
-  eprint={2012.10852},
-  archivePrefix={arXiv},
-  primaryClass={cs.CV}
+@InProceedings{Hegde_2021_WACV,
+    author    = {Hegde, Sindhu B. and Prajwal, K.R. and Mukhopadhyay, Rudrabha and Namboodiri, Vinay P. and Jawahar, C.V.},
+    title     = {Visual Speech Enhancement Without a Real Visual Stream},
+    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},
+    month     = {January},
+    year      = {2021},
+    pages     = {1926-1935}
 }
 ```
 

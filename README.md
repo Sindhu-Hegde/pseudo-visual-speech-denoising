@@ -26,7 +26,7 @@ This code is for our paper titled: *Visual Speech Enhancement Without A Real Vis
 ----
 Prerequisites
 ---
-- `Python 3.7+`
+- `Python 3.7.4` (Code has been tested with this version)
 - ffmpeg: `sudo apt-get install ffmpeg`
 - Install necessary packages using `pip install -r requirements.txt`
 - Face detection [pre-trained model](https://www.adrianbulat.com/downloads/python-fan/s3fd-619a316812.pth) should be downloaded to `face_detection/detection/sfd/s3fd.pth`
